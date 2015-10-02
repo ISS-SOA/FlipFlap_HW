@@ -29,7 +29,7 @@ When working on your solution, keep adding changes, commiting, and pushing to Gi
 
 You are given two complete code files: `tsv_to_yml.rb` and `yml_to_tsv.rb`.
 These files are command line applications that convert between TSV and Yaml formats.
-However, they require two more more code files that you must create in this assignment:
+However, they require two more code files that you must create in this assignment:
 `flip_flap.rb` and `tsv_buddy.rb`.
 
 You are also given two data files to play with: `survey.tsv` and `survey.yml`
