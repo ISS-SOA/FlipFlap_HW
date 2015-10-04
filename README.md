@@ -111,6 +111,9 @@ and back into TSV with no change in information.
 Test your code out by running the spec (test) that is provided:
 
 ```
+$ bundle install
+(only need to run this once; bundle should report sucess)
+
 $ ruby flip_flap_spec.rb
 ```
 
