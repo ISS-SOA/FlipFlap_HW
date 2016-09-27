@@ -126,7 +126,7 @@ $ git commit -m "Solved the homework; all tests pass"
 $ git push -u origin master
 ```
 
-2. Please submit the HTTP URL of your Github repo (e.g., https://github.com/<username>/FlipFlap_HW -- not the SSH URL you used before).
+Please submit the HTTP URL of your Github repo (e.g., https://github.com/<username>/FlipFlap_HW -- not the SSH URL you used before).
 
 ### What Did We Learn?
 
