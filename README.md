@@ -43,8 +43,10 @@ However, to complete `FlipFlap`, you must first create two modules called `TsvBu
 
 You must fill out two methods in `TsvBuddy`:
 
-`def take_tsv(tsv)` : this method should take a String called `tsv` and convert
-it into a data structure to store in an instance variable called `@data`. For example, you may want `@data` an Array of Hashes that looks something like this:
+**take_tsv**
+
+`def take_tsv(tsv)` : This method should take a String called `tsv` and convert
+it into a data structure called `@data`. For example, you may want `@data` to be an Array of Hashes that looks something like this:
 
 ```
 [{"date"=>"9/12/2014 20:20:55",
@@ -60,7 +62,9 @@ it into a data structure to store in an instance variable called `@data`. For ex
 ]
 ```
 
-`def to_tsv` : this method should take any data in `@data` and return a String
+**to_tsv**
+
+`def to_tsv` : This method should take any data in `@data` and return a String
 in TSV format.
 
 Note that modules cannot be made into object instances (i.e., you cannot do
@@ -88,10 +92,8 @@ Feel free to use the 'yaml' library in R to implement both methods.
 
 #### 3. flip_flap.rb
 
-This file's `FlipFlap` class should mixin (using `include`) `TsvBuddy` and `YamlBuddy` modules.
+This file's `FlipFlap` class should mix in `TsvBuddy` and `YamlBuddy` modules (using `include`).
 Mixing these modules in will give class `FlipFlap` all of `TsvBuddy`'s and `YamlBuddy`'s methods.
-
-This class should then implement two methods (not provided):
 
 And that's it!
 
@@ -109,7 +111,7 @@ $ bundle install
 $ ruby flip_flap_spec.rb
 ```
 
-Also, take a peek into `flip_flap_spec.rb` to see how it works -- you will soon start writing your own specs for your project!
+Also, take a peek into `flip_flap_spec.rb` to see how it works -- you will soon start writing your own specs for your projects!
 
 ### Submission
 
@@ -121,6 +123,6 @@ This assignment shows you the power of mixins in Ruby's object model.
 You have created a class (FlipFlap) that can in the future incorporate code to
 parse or create any kind of data format (CSV, Excel, etc.).
 To keep FlipFlap short and uncomplicated, we can make modules (like TsvBuddy and YamlBuddy) for other formats (CsvBuddy, ExcelBuddy, etc.) and simply mix them into FlipFlap.
-Using mixins cleanly separates our code by keeping the parsing logic away from other code needed by applications to handle the data.
+Using mixins cleanly separates our code by keeping the parsing logic away from other code needed by applications to handle the data. And we can do this all without inheritance.
 
 Feel free to ask more questions on our Canvas board, and we will of course discuss this in class!
