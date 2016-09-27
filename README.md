@@ -15,22 +15,13 @@ If you are new to git, please complete the following:
 #### 2. Getting the assignment repository from Github
 Now, clone the files needed to start this homework project in a new directory:
 
-    $ git clone https://github.com/ISS-SOA/FlipFlap_HW.git
+    $ git clone git@github.com:ISS-SOA/FlipFlap_HW.git
 
-This will create a directory called `FlipFlap_HW` in your current directory.
+This will create a directory called `FlipFlap_HW` in your current directory:
 
 *DO NOT FORK THIS REPO* because you will not submit your solution as pull requests! You may, however, fork the repo if you wish to submit pull requests that fix typos, etc.
 
-Finally, link this new directory with a new Github repository:
-- Create a new repository in your Github account using the '+' button (call it `SOA_flip_flap` for example)
-- In your new repo, click the green 'Clone or download' button and copy the SSH URL of your Github repo (it should look like git@github.com:username/your_repo.git)
-- `cd` into your local directory `FlipFlap_HW`
-- set your new Github repo as the remote repo:
-
-`$ git remote add origin <SSH URL of Github repo>`
-
-If you are new to Github, follow the submission instructions at the end of this README.
-
+If you are familiar with git and Github, please create your own personal repo on Github and push to it.  If you are new to git and Github, please read the submission instructions at the end, very carefully.
 
 ### Your Assignment
 
@@ -115,7 +106,26 @@ Also, take a peek into `flip_flap_spec.rb` to see how it works -- you will soon 
 
 ### Submission
 
-Please submit the HTTP URL of your Github repo (e.g., https://github.com/<username>/FlipFlap_HW).
+#### Add your work to the repo
+
+This part is for those of you who are new to using git and Github.
+
+Link this your assignment directory with a new Github repository:
+- Create a new repository in your Github account using the '+' button (call it `SOA_flip_flap` for example)
+- In your new Github repo, click the green 'Clone or download' button and copy the SSH URL of your Github repo (it should look like `git@github.com:username/your_repo.git` -- if you see an HTTP URL, click the 'Use SSH' link in the popup)
+- `cd` into your local directory `FlipFlap_HW`
+- set your new Github repo as the remote repo:
+
+`$ git remote set-url origin <SSH URL of Github repo>`
+
+Now, add your changed code and push it to Github.
+
+```
+$ git add .
+$ git commit -m "Solved the homework; all tests pass"
+$ git push -u origin master
+
+2. Please submit the HTTP URL of your Github repo (e.g., https://github.com/<username>/FlipFlap_HW -- not the SSH URL you used before).
 
 ### What Did We Learn?
 
