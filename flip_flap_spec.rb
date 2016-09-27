@@ -41,3 +41,23 @@ describe 'FlipFlap specs' do
     flipper.data.wont_be_nil
   end
 end
+
+describe 'application specs' do
+  it 'should convert yml to tsv from command line' do
+    `ruby yml_to_tsv.rb data/survey.yml data/test.tsv`
+    File.file?('data/test.tsv').must_equal true
+    diff = FileUtils.compare_file('data/survey.tsv', 'data/test.tsv')
+    diff.must_equal true
+  end
+
+  it 'should convert tsv to yml from command line' do
+    `ruby tsv_to_yml.rb data/survey.tsv data/test.yml`
+    File.file?('data/test.yml').must_equal true
+    diff = FileUtils.compare_file('data/survey.yml', 'data/test.yml')
+    diff.must_equal true
+  end
+
+  after do
+    `rm data/test.* > /dev/null 2>&1`
+  end
+end

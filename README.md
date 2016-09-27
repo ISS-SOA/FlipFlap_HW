@@ -2,8 +2,7 @@
 
 ### Overview
 
-This homework assignment asks you to create two files (a module and a class) that
-are needed to run the two command lines applications you are given.
+This homework assignment asks you to create two files (a module and a class) that are needed to pass all tests.
 
 ### Installing Assignment Files
 
@@ -35,24 +34,17 @@ If you are new to Github, follow the submission instructions at the end of this 
 
 ### Your Assignment
 
-You are also given two data files to play with: `data/survey.tsv` and `data/survey.yml`
+You are given two application files: `tsv_to_yml.rb`, `yml_to_tsv.rb`. DO NOT EDIT THESE FILES. These two command line applications will be able convert between TSV and Yaml data formats using the `FlipFlap` class, once you complete the assignment.
 
-You are given two complete code files: `tsv_to_yml.rb` and `yml_to_tsv.rb`.
-These files are command line applications that convert between TSV and Yaml formats.
-DO NOT EDIT THESE FILES.
-Your task is to get `tsv_to_yml.rb` and `yml_to_tsv.rb` to work, without making any modifications to these files.
-Please study their code now.
-
-These two application files need two more code files for the code to work:
-`flip_flap.rb` and `tsv_buddy.rb`.
-
-The `flip_flap.rb` file should contain a class called `FlipFlap` that you must create. However, to complete `FlipFlap`, you must first create a complete module called `TsvBuddy` in a file called `tsv_buddy.rb`
+The `FlipFlap` class is in `flip_flap.rb`, which you may modify.
+However, to complete `FlipFlap`, you must first create two modules called `TsvBuddy` (in file `tsv_buddy.rb`) and `YamlBuddy` (in file `yaml_buddy.rb`)
 
 #### 1. tsv_buddy.rb
 
-This file already contains an instance variable called `@data`, which will contain a
-data structure to hold information loaded from TSV files.
-For example, you may want to make this data structure an Array of Hashes that looks something like this:
+You must fill out two methods in `TsvBuddy`:
+
+`def take_tsv(tsv)` : this method should take a String called `tsv` and convert
+it into a data structure to store in an instance variable called `@data`. For example, you may want `@data` an Array of Hashes that looks something like this:
 
 ```
 [{"date"=>"9/12/2014 20:20:55",
@@ -68,17 +60,11 @@ For example, you may want to make this data structure an Array of Hashes that lo
 ]
 ```
 
-You must fill out two methods in `TsvBuddy`:
-
-`def take_tsv(tsv)` : this method should take a String called `tsv` and convert
-it into a data structure to store in `@data`.
-
 `def to_tsv` : this method should take any data in `@data` and return a String
 in TSV format.
 
 Note that modules cannot be made into object instances (i.e., you cannot do
-`mymod = TsvBuddy.new`.  So to test this module while you are developing it,
-you can do something like this:
+`mymod = TsvBuddy.new`.  So to test this module in the beginning, you can do something like this:
 
 ```
   class Tester
@@ -88,19 +74,24 @@ you can do something like this:
   t = Tester.new.take_tsv(File.read('data/survey.tsv'))
 ```
 
-That should show you if `take_tsv` is creating the right structure for example.
+That should show you if `take_tsv` is creating the right structure in `@data`, for example. Of course, please run the full tests (described later) as your development progresses.
 
-#### 2. flip_flap.rb
+#### 2. yaml_buddy.rb
 
-This class should mixin (using `include`) TsvBuddy. That will give it access to
-TsvBuddy's `@data` member variable and to its two methods `take_tsv` and `to_tsv`.
+This file should contain a module called `YamlBuddy` with two methods:
+
+`def take_yaml(yaml)` : takes a yaml string and converts it into a data structure in `@data`.
+
+`def to_yaml` : converts any data in `@data` into a yaml string.
+
+Feel free to use the 'yaml' library in R to implement both methods.
+
+#### 3. flip_flap.rb
+
+This file's `FlipFlap` class should mixin (using `include`) `TsvBuddy` and `YamlBuddy` modules.
+Mixing these modules in will give class `FlipFlap` all of `TsvBuddy`'s and `YamlBuddy`'s methods.
 
 This class should then implement two methods (not provided):
-
-`def take_yaml(yml)` : this method takes a Yaml string and create a data structure to put into `@data`.
-You can do this with the `yaml` library.
-
-`def to_yaml` : this method should return `@data` in Yaml format.
 
 And that's it!
 
@@ -118,21 +109,18 @@ $ bundle install
 $ ruby flip_flap_spec.rb
 ```
 
-Also, take a peek into `flip_flap_spec.rb` to see how it works -- you will soon start writing your own specs!
+Also, take a peek into `flip_flap_spec.rb` to see how it works -- you will soon start writing your own specs for your project!
 
 ### Submission
 
-Please submit the URL of your Github repo.
+Please submit the HTTP URL of your Github repo (e.g., https://github.com/<username>/FlipFlap_HW).
 
 ### What Did We Learn?
 
 This assignment shows you the power of mixins in Ruby's object model.
 You have created a class (FlipFlap) that can in the future incorporate code to
-parse or create any kind of data format (CSV, Excel, etc.).  To keep FlipFlap short
-and uncomplicated, we can make modules (like TsvBuddy) for other formats (CsvBuddy,
-ExcelBuddy, etc.) and simply include them into FlipFlap. This cleanly seperates
-our code by keeping the logic for parsing (the XyzBuddy modules) away from the code
-needed by applications to handle the data (class FlipFlap).
+parse or create any kind of data format (CSV, Excel, etc.).
+To keep FlipFlap short and uncomplicated, we can make modules (like TsvBuddy and YamlBuddy) for other formats (CsvBuddy, ExcelBuddy, etc.) and simply mix them into FlipFlap.
+Using mixins cleanly separates our code by keeping the parsing logic away from other code needed by applications to handle the data.
 
-Feel free to ask more questions on our Canvas board, and we will of course discuss
-this in class!
+Feel free to ask more questions on our Canvas board, and we will of course discuss this in class!
