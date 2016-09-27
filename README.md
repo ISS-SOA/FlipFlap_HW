@@ -1,15 +1,20 @@
 ## FlipFlap HW
 
-###Overview
+### Overview
 
 This homework assignment asks you to create two files (a module and a class) that
 are needed to run the two command lines applications you are given.
 
-###Installing Basic HW files
+### Installing Assignment Files
 
-First, make sure you have `git` installed (see our class notes) on your machine.
+#### 1. Setting up Github
+If you are new to git, please complete the following:
 
-Then, install the files needed to start this homework project:
+- [Follow these instructions to setup git](https://help.github.com/articles/set-up-git/) (Only do 'Setting up Git').
+- [Follow these directions to create an SSH key and add it to your Github account](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+
+#### 2. Getting the assignment repository from Github
+Now, clone the files needed to start this homework project in a new directory:
 
     $ git clone https://github.com/ISS-SOA/FlipFlap_HW.git
 
@@ -17,39 +22,37 @@ This will create a directory called `FlipFlap_HW` in your current directory.
 
 *DO NOT FORK THIS REPO* because you will not submit your solution as pull requests! You may, however, fork the repo if you wish to submit pull requests that fix typos, etc.
 
-Second, link the repo in your new folder with Github:
-- create a new repo in your Github account (call it `SOA_flip_flap` for example), and copy the SSH URL
+Finally, link this new directory with a new Github repository:
+- Create a new repository in your Github account using the '+' button (call it `SOA_flip_flap` for example)
+- In your new repo, click the green 'Clone or download' button and copy the SSH URL of your Github repo (it should look like git@github.com:username/your_repo.git)
 - `cd` into your local directory `FlipFlap_HW`
-- set your new Github repo as the remote `origin` repo: `$ git remote add origin git@github.com/YOURACCOUNT/YOURREPO.git`
+- set your new Github repo as the remote repo:
 
-When working on your solution, keep adding changes, commiting, and pushing to Github.
+`$ git remote add origin <SSH URL of Github repo>`
+
+If you are new to Github, follow the submission instructions at the end of this README.
 
 
-### Files Given
+### Your Assignment
+
+You are also given two data files to play with: `data/survey.tsv` and `data/survey.yml`
 
 You are given two complete code files: `tsv_to_yml.rb` and `yml_to_tsv.rb`.
 These files are command line applications that convert between TSV and Yaml formats.
-However, they require two more code files that you must create in this assignment:
+DO NOT EDIT THESE FILES.
+Your task is to get `tsv_to_yml.rb` and `yml_to_tsv.rb` to work, without making any modifications to these files.
+Please study their code now.
+
+These two application files need two more code files for the code to work:
 `flip_flap.rb` and `tsv_buddy.rb`.
 
-You are also given two data files to play with: `survey.tsv` and `survey.yml`
-
-###Assignment:
-
-Your task is to get `tsv_to_yml.rb` and `yml_to_tsv.rb` to work, without making
-any modifications to these files.  Please study their code now.
-
-They both require a file called `flip_flap.rb` that should contain a class called FlipFlap.
-On of your tasks is to create a complete class FlipFlap. However, to complete
-FlipFlap, you must first create a complete module called TsvBuddy in a file called
-`tsv_buddy.rb`
+The `flip_flap.rb` file should contain a class called `FlipFlap` that you must create. However, to complete `FlipFlap`, you must first create a complete module called `TsvBuddy` in a file called `tsv_buddy.rb`
 
 #### 1. tsv_buddy.rb
 
-This file already contains an instance variable called `@data` that will contain a
-data structure to hold information loaded from TSV files. For example, you may want to make this
-data strcuture an Array of Hashes that looks something like this:
-
+This file already contains an instance variable called `@data`, which will contain a
+data structure to hold information loaded from TSV files.
+For example, you may want to make this data structure an Array of Hashes that looks something like this:
 
 ```
 [{"date"=>"9/12/2014 20:20:55",
@@ -65,7 +68,7 @@ data strcuture an Array of Hashes that looks something like this:
 ]
 ```
 
-You must fill out two methods:
+You must fill out two methods in `TsvBuddy`:
 
 `def take_tsv(tsv)` : this method should take a String called `tsv` and convert
 it into a data structure to store in `@data`.
@@ -82,7 +85,7 @@ you can do something like this:
     include TsvBuddy
   end
 
-  t = Tester.new.take_tsv(File.read('./data/survey.tsv'))
+  t = Tester.new.take_tsv(File.read('data/survey.tsv'))
 ```
 
 That should show you if `take_tsv` is creating the right structure for example.
@@ -95,24 +98,22 @@ TsvBuddy's `@data` member variable and to its two methods `take_tsv` and `to_tsv
 This class should then implement two methods (not provided):
 
 `def take_yaml(yml)` : this method takes a Yaml string and create a data structure to put into `@data`.
-You should be able to do this with one line of code using the `yaml` library's load method.
+You can do this with the `yaml` library.
 
 `def to_yaml` : this method should return `@data` in Yaml format.
 
-
 And that's it!
 
+### Test Your Solution
 
-### Verifying Your Solution
-
-If your solution works, then you should be able to convert TSV files into Yaml,
+Test your solution as you code. You should be able to convert TSV files into Yaml,
 and back into TSV with no change in information.
 
 Test your code out by running the spec (test) that is provided:
 
 ```
 $ bundle install
-(only need to run this once; bundle should report sucess)
+(only need to run this once; bundle should report success)
 
 $ ruby flip_flap_spec.rb
 ```
