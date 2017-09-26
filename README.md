@@ -12,16 +12,16 @@ If you are new to git, please complete the following:
 - [Follow these instructions to setup git](https://help.github.com/articles/set-up-git/) (Only do 'Setting up Git').
 - [Follow these directions to create an SSH key and add it to your Github account](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
 
-#### 2. Getting the assignment repository from Github
-Now, clone the files needed to start this homework project in a new directory:
+#### 2. Getting the assignment code from Github
+Now, clone the files needed to start this homework assignment in a new directory:
 
     $ git clone git@github.com:ISS-SOA/FlipFlap_HW.git
 
-This will create a directory called `FlipFlap_HW` in your current directory:
+This will create a directory called `FlipFlap_HW/` in your current directory:
 
-*DO NOT FORK THIS REPO* because you will not submit your solution as pull requests! You may, however, fork the repo if you wish to submit pull requests that fix typos, etc.
+*DO NOT FORK THE CLASS REPO* because you will not submit your solution as pull requests!
 
-If you are familiar with git and Github, please create your own personal repo on Github and push to it.  If you are new to git and Github, please read the submission instructions at the end, very carefully.
+If you are new to git and Github, please read the submission instructions at the end, very carefully. To submit your assignment, you will later create your own personal repository on Github and push to it.
 
 ### Your Assignment
 
@@ -99,31 +99,37 @@ Test your code out by running the spec (test) that is provided:
 $ bundle install
 (only need to run this once; bundle should report success)
 
-$ ruby flip_flap_spec.rb
+$ bundle exec ruby flip_flap_spec.rb
 ```
 
 Also, take a peek into `flip_flap_spec.rb` to see how it works -- you will soon start writing your own specs for your projects!
 
 ### Submission
-
-#### Add your work to the repo
-
 This part is for those of you who are new to using git and Github.
 
-Link this your assignment directory with a new Github repository:
-- Create a new repository in your Github account using the '+' button (call it `SOA_flip_flap` for example)
-- In your new Github repo, click the green 'Clone or download' button and copy the SSH URL of your Github repo (it should look like `git@github.com:username/your_repo.git` -- if you see an HTTP URL, click the 'Use SSH' link in the popup)
-- `cd` into your local directory `FlipFlap_HW`
-- set your new Github repo as the remote repo:
-
-`$ git remote set-url origin <SSH URL of Github repo>`
-
-Now, add your changed code and push it to Github.
+#### 1. Add your work to your local repository
+Your working folder contains a hidden folder called `.git/` where you can save snapshots (commits) of your work to share with others. Once you've finished the assignment, save a snapshot of your final work:
 
 ```
 $ git add .
-$ git commit -m "Solved the homework; all tests pass"
-$ git push -u origin master
+$ git commit -m "Solved the homework and all tests pass"
+````
+
+#### 2. Push your local repository to Github
+We will now copy the commit of your final work to a new repository on Github.
+
+Go to the Github website and make sure you are signed in. Then, create a new Github repository:
+- Create a new repository in your Github account using the '+' button (call it `SOA_flip_flap` for example)
+- In your new Github repo, click the green 'Clone or download' button and copy the SSH URL of your Github repo (it should look like `git@github.com:username/your_repo.git` -- if you see an HTTP URL, click the 'Use SSH' link in the popup)
+
+In your local `FlipFlap_HW/` folder, set your new Github repo as the remote repo where you will be pushing your work:
+
+`$ git remote set-url origin <SSH URL of Github repo>`
+
+Now, push your local repo to the Github repo you created.
+
+```
+$ git push origin master
 ```
 
 Please submit the HTTP URL of your Github repo (e.g., `https://github.com/<username>/FlipFlap_HW` -- not the SSH URL you used before).
