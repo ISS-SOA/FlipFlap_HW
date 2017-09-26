@@ -3,7 +3,7 @@
 require_relative 'flip_flap'
 
 usage = 'Usage:  tsv_to_yml [TSV_file] [YML_file]\n'
-fail ArgumentError, usage if ARGV.count == 0
+raise ArgumentError, usage if ARGV.count.zero?
 
 tsv_filename = ARGV[0]
 yml_filename = ARGV[1]
