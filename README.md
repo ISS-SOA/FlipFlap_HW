@@ -2,7 +2,7 @@
 
 ## Overview
 
-This homework assignment asks you to create two files (a module and a class) that are needed to pass all tests.
+This homework assignment asks you to create and edit some files that are needed to pass all tests.
 
 ## Installing Assignment Files
 
@@ -10,18 +10,25 @@ This homework assignment asks you to create two files (a module and a class) tha
 
 If you are new to git, please complete the following:
 
-- [Follow these instructions to setup git](https://help.github.com/articles/set-up-git/) (Only do 'Setting up Git').
+- [Follow these instructions to set up git](https://help.github.com/articles/set-up-git/)
 - [Follow these directions to create an SSH key and add it to your Github account](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
 
 ### 2. Get and Setup assignment code from Github
 
-Now, clone the files needed to start this homework assignment in a new directory:
+Clone the files needed to start this homework assignment:
 
 ```bash
 git clone git@github.com:ISS-SOA/FlipFlap_HW.git
 ```
 
-This will create a directory called `FlipFlap_HW/` in your current directory:
+This will create a directory called `FlipFlap_HW/` in your current directory.
+
+Run `bundle install` to install all gems in Gemfile (you might want to first specify your local Ruby version using `rbenv`)
+
+```bash
+bundle install
+# (only need to run this once to install testing gems specified in the Gemfile)
+```
 
 *DO NOT FORK THE CLASS REPO* because you will not submit your solution as pull requests!
 
@@ -29,14 +36,11 @@ If you are new to git and Github, please read the submission instructions at the
 
 ## Test Your Solution
 
-Test your solution after cloning it to make sure that your tests fail. Keep teseting continuously as you code. 
+Start by testing your solution after cloning it to make sure that your tests fail. Keep teseting continuously as you code.
 
-Run the spec (test) that is provided:
+Run the spec file that is provided:
 
 ```bash
-bundle install
-# (only need to run this once to install testing gems specified in the Gemfile)
-
 bundle exec ruby flip_flap_spec.rb
 # (runs all tests using only gems specified in Gemfile)
 ```
@@ -56,8 +60,6 @@ However, to complete `FlipFlap`, you must first create two modules called `TsvBu
 
 You must fill out two methods in `TsvBuddy`:
 
-#### take_tsv
-
 `def take_tsv(tsv)` : This method should take a String called `tsv` and convert
 it into a data structure called `@data`. For example, you may want `@data` to be an Array of Hashes that looks something like this:
 
@@ -74,8 +76,6 @@ it into a data structure called `@data`. For example, you may want `@data` to be
 
 ]
 ```
-
-#### to_tsv
 
 `def to_tsv` : This method should use any data in `@data` and return a String
 in TSV format.
@@ -101,12 +101,12 @@ This file should contain a module called `YamlBuddy` with two methods:
 
 `def to_yaml` : converts any data in `@data` into a yaml string.
 
-Feel free to use the 'yaml' library in R to implement both methods.
+Feel free to use the `yaml` library in R to implement both methods.
 
 ### 3. flip_flap.rb
 
-This file's `FlipFlap` class should mix in `TsvBuddy` and `YamlBuddy` modules (using `include`).
-Mixing these modules in will give class `FlipFlap` all of `TsvBuddy`'s and `YamlBuddy`'s methods.
+This file's `FlipFlap` class should mix in `TsvBuddy` and `YamlBuddy` modules using the `include` directive.
+Including the two modules will give class `FlipFlap` all of `TsvBuddy`'s and `YamlBuddy`'s methods.
 
 And that's it!
 
@@ -130,7 +130,7 @@ We will now copy the commit of your final work to a new repository on Github.
 Go to the Github website and make sure you are signed in. Then, create a new Github repository:
 
 - Create a new repository in your Github account using the '+' button (call it `SOA_flip_flap` for example)
-- In your new Github repo, click the green 'Clone or download' button and copy the SSH URL of your Github repo (it should look like `git@github.com:username/your_repo.git` -- if you see an HTTP URL, click the 'Use SSH' link in the popup)
+- In your new Github repo, click the green '(↧ Code)' button and copy the SSH URL of your Github repo (it should look like `git@github.com:username/your_repo.git` -- if you see an HTTP URL, click the 'Use SSH' link in the popup)
 
 In your local `FlipFlap_HW/` folder, set your new Github repo as the remote repo where you will be pushing your work:
 
@@ -154,4 +154,4 @@ parse or create any kind of data format (such as CSV or XLSX).
 To keep FlipFlap short and uncomplicated, we can make modules for other formats (such as `CsvBuddy` or `ExcelBuddy`) and simply mix them into FlipFlap.
 Using mixins cleanly separates our code by keeping the parsing logic away from other code needed by applications to handle the data. And we can do this all without inheritance.
 
-Feel free to ask more questions on our Canvas board, and we will of course discuss this in class!
+Feel free to ask more questions on our Slack workspace, and we will of course discuss this in class!
