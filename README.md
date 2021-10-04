@@ -15,6 +15,8 @@ If you are new to git, please complete the following:
 
 ### 2. Get and Setup assignment code from Github
 
+*DO NOT FORK THE CLASS REPO* because you will not submit your solution as pull requests!
+
 Clone the files needed to start this homework assignment:
 
 ```bash
@@ -23,20 +25,15 @@ git clone git@github.com:ISS-SOA/FlipFlap_HW.git
 
 This will create a directory called `FlipFlap_HW/` in your current directory.
 
-Run `bundle install` to install all gems in Gemfile (you might want to first specify your local Ruby version using `rbenv`)
+Specify your local Ruby version using `rbenv`.
 
-```bash
-bundle install
-# (only need to run this once to install testing gems specified in the Gemfile)
-```
-
-*DO NOT FORK THE CLASS REPO* because you will not submit your solution as pull requests!
+Run `bundle install` to install all gems in Gemfile.
 
 If you are new to git and Github, please read the submission instructions at the end, very carefully. To submit your assignment, you will later create your own personal repository on Github and push to it.
 
 ## Test Your Solution
 
-Start by testing your solution after cloning it to make sure that your tests fail. Keep teseting continuously as you code.
+Start by testing your solution after cloning it to make sure that your tests fail. Keep testing continuously as you code.
 
 Run the spec file that is provided:
 
@@ -50,7 +47,7 @@ Take a peek into `flip_flap_spec.rb` to see how it works -- you will soon start 
 ## Your Assignment
 
 **Files you CANNOT change:**
-You are given two application files: `tsv_to_yml.rb`, `yml_to_tsv.rb`. Do not edit these files. These two command line applications will be able convert between TSV and Yaml data formats using the `FlipFlap` class, once you complete the assignment.
+You are given two application files: `tsv_to_yml.rb`, `yml_to_tsv.rb`. Do NOT edit these files (except to solve rubocop issues with them). These two command line applications will be able convert between TSV and Yaml data formats using the `FlipFlap` class, once you complete the assignment.
 
 **Files you MUST edit:**
 The `FlipFlap` class is in `flip_flap.rb`, which you may modify.
@@ -81,14 +78,14 @@ it into a data structure called `@data`. For example, you may want `@data` to be
 in TSV format.
 
 Note that modules cannot be made into object instances (i.e., you cannot do
-`mymod = TsvBuddy.new`.  So to test this module in the beginning, you can do something like this:
+`mymod = TsvBuddy.new`.  So to test this module in the beginning, you can do something like this in IRB/Pry:
 
 ```ruby
-  class Tester
-    include TsvBuddy
-  end
+class Tester
+  include TsvBuddy
+end
 
-  t = Tester.new.take_tsv(File.read('data/survey.tsv'))
+t = Tester.new.take_tsv(File.read('data/survey.tsv'))
 ```
 
 That should show you if `take_tsv` is creating the right structure in `@data`, for example. Of course, please run the full tests (described later) as your development progresses.
@@ -101,7 +98,7 @@ This file should contain a module called `YamlBuddy` with two methods:
 
 `def to_yaml` : converts any data in `@data` into a yaml string.
 
-Feel free to use the `yaml` library in R to implement both methods.
+Feel free to use the `yaml` library in R to easily implement both methods.
 
 ### 3. flip_flap.rb
 
@@ -116,12 +113,14 @@ This part is for those of you who are new to using git and Github.
 
 ### 1. Add your work to your local repository
 
-Your working folder contains a hidden folder called `.git/` where you can save snapshots (commits) of your work to share with others. Once you've finished the assignment, save a snapshot of your final work:
+Your working folder already contains a hidden folder called `.git/` where you can save snapshots (commits) of your work to share with others. Once you've finished the assignment, save a snapshot of your final work:
 
 ```bash
 git add .
-git commit -m "Solved the homework and all tests pass"
+git commit -m "All tests pass; rubocop/flog resolved"
 ```
+
+If you are familiar with git, you might make multiple commits as your work progreses.
 
 ### 2. Push your local repository to Github
 
@@ -130,12 +129,12 @@ We will now copy the commit of your final work to a new repository on Github.
 Go to the Github website and make sure you are signed in. Then, create a new Github repository:
 
 - Create a new repository in your Github account using the '+' button (call it `SOA_flip_flap` for example)
-- In your new Github repo, click the green '(↧ Code)' button and copy the SSH URL of your Github repo (it should look like `git@github.com:username/your_repo.git` -- if you see an HTTP URL, click the 'Use SSH' link in the popup)
+- In your new Github repo, click the green '(<> Code)' button and copy the SSH URL of your Github repo (it should look something like `git@github.com:username/SOA_flip_flap.git` -- if you see an HTTP URL, click the 'Use SSH' link in the popup)
 
 In your local `FlipFlap_HW/` folder, set your new Github repo as the remote repo where you will be pushing your work:
 
 ```bash
-git remote set-url origin <SSH URL of Github repo>`
+git remote set-url origin <SSH URL of Github repo>
 ```
 
 Now, push your local repo to the Github repo you created.
@@ -144,7 +143,7 @@ Now, push your local repo to the Github repo you created.
 git push origin master
 ```
 
-Please submit the HTTP URL of your Github repo (e.g., `https://github.com/<username>/FlipFlap_HW` -- not the SSH URL you used before).
+Please submit the HTTP URL of your Github repo (e.g., `https://github.com/<username>/SOA_flip_flap` -- not the SSH URL you used before).
 
 ## What Did We Learn
 

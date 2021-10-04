@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'tsv_buddy'
 require_relative 'yaml_buddy'
 
