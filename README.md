@@ -25,7 +25,7 @@ git clone git@github.com:ISS-SOA/FlipFlap_HW.git
 
 This will create a directory called `FlipFlap_HW/` in your current directory.
 
-Specify your local Ruby version using `rbenv`.
+Specify your local Ruby version using `rbenv local`.
 
 Run `bundle install` to install all gems in Gemfile.
 
