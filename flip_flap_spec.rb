@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'minitest/unit' # see: https://github.com/minitest/minitest-rg/issues/17
 require 'minitest/autorun'
 require 'minitest/rg'
 
