@@ -140,7 +140,7 @@ git remote set-url origin <SSH URL of Github repo>
 Now, push your local repo to the Github repo you created.
 
 ```bash
-git push origin master
+git push origin main
 ```
 
 Please submit the HTTP URL of your Github repo (e.g., `https://github.com/<username>/SOA_flip_flap` -- not the SSH URL you used before).
