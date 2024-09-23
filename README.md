@@ -78,14 +78,14 @@ it into a data structure called `@data`. For example, you may want `@data` to be
 in TSV format.
 
 Note that modules cannot be made into object instances (i.e., you cannot do
-`mymod = TsvBuddy.new`.  So to test this module in the beginning, you can do something like this in IRB/Pry:
+`mymod = TsvBuddy.new`).  So to test this module in the beginning, you can do something like this in IRB/Pry:
 
 ```ruby
 class Tester
   include TsvBuddy
 end
 
-t = Tester.new.take_tsv(File.read('data/survey.tsv'))
+test = Tester.new.take_tsv(File.read('data/survey.tsv'))
 ```
 
 That should show you if `take_tsv` is creating the right structure in `@data`, for example. Of course, please run the full tests (described later) as your development progresses.
@@ -103,7 +103,7 @@ Feel free to use the `yaml` library in R to easily implement both methods.
 ### 3. flip_flap.rb
 
 This file's `FlipFlap` class should mix in `TsvBuddy` and `YamlBuddy` modules using the `include` directive.
-Including the two modules will give class `FlipFlap` all of `TsvBuddy`'s and `YamlBuddy`'s methods.
+Including the two modules will give class `FlipFlap` all the methods of `TsvBuddy` and `YamlBuddy`.
 
 And that's it!
 
@@ -120,7 +120,7 @@ git add .
 git commit -m "All tests pass; rubocop/flog resolved"
 ```
 
-If you are familiar with git, you might make multiple commits as your work progreses.
+If you are familiar with git, you might make multiple commits as your work progreses (e.g., after each solution or refactoring).
 
 ### 2. Push your local repository to Github
 

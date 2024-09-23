@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require 'minitest/unit' # see: https://github.com/minitest/minitest-rg/issues/17
 require 'minitest/rg'
 
 require_relative 'flip_flap'
